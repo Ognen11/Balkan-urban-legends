@@ -8,7 +8,7 @@ extends CharacterBody3D
 @export var air_acceleration: float = 3.0
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-
+const STEP_HEIGHT := 0.3
 @onready var head: Node3D = $Head
 
 
@@ -71,4 +71,23 @@ func _physics_process(delta: float) -> void:
 	velocity.x = move_toward(velocity.x, target_velocity.x, accel * delta * target_speed)
 	velocity.z = move_toward(velocity.z, target_velocity.z, accel * delta * target_speed)
 
+	# Step up onto stairs before moving
+	var horizontal_motion := Vector3(velocity.x, 0.0, velocity.z) * delta
+	try_step_up(horizontal_motion)
+
 	move_and_slide()
+
+
+func try_step_up(horizontal_motion: Vector3) -> void:
+	if not is_on_floor():
+		return
+	if horizontal_motion.length() < 0.001:
+		return
+
+	# Blocked by something ahead at current height?
+	if test_move(global_transform, horizontal_motion):
+		# Is the path clear if we raise the body by STEP_HEIGHT?
+		var raised := Transform3D(global_transform.basis,
+			global_transform.origin + Vector3.UP * STEP_HEIGHT)
+		if not test_move(raised, horizontal_motion):
+			global_position.y += STEP_HEIGHT
