@@ -149,3 +149,16 @@ Modified  character_body_3d.gd</pre>
 <pre>Removed  addons/terrain_3d/bin/~libterrain.windows.debug.x86_64.dll
 Modified  baba_roga.tscn</pre>
 </details>
+
+## Drekavac landscape and fir forest update
+
+- Expanded and reshaped the level into a 1.5 km by 1.5 km mountain valley with smoother, gradual hillsides.
+- Added a narrow winding river with transparent water, a shaped riverbed, and scattered river rocks.
+- Added forest ground textures with more fallen leaves and saved the terrain texture assignments for editing and play.
+- Imported Poly Haven's Fir Tree 01 with three fir variants and planted a dense forest on both hillsides.
+- Grounded the trees across their root footprint, thinned the highest ridges for future rocks, and removed the white Terrain3D placeholder instances.
+- The forest now contains 55,718 firs with trunks widened by 40%, matching trunk collisions, and updated distant tree images.
+- Saved the forest as `DrekavacTerrainData/fir_forest.scn`, instanced by `Drekavac.tscn`. Tree assets are in `Models/Vegetation/FirTree01/`.
+- Added the original Blender source and textures in `Models/Vegetation/FirTree01/BlenderSource/`. The Blender file uses Git LFS. Install Git LFS before cloning, or run `git lfs pull` after updating an existing clone.
+- Updated Terrain3D's editor scaling API and excluded its optional C# examples from GDScript project scanning.
+- The fir source is available under CC0 from [Poly Haven](https://polyhaven.com/a/fir_tree_01).
