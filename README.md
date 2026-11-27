@@ -24,6 +24,92 @@ GitHub Actions refreshes the list below after pushes to main. Each entry links t
 
 <!-- game-changes -->
 
+<details><summary>Build Drekavac mountain valley and dense fir forest</summary>
+
+[View commit](https://github.com/Ognen11/Balkan-urban-legends/commit/1093c35cf3054892b17a5ec8b2a04215ff4c9940)
+
+<pre>Modified  Drekavac.tscn
+Added  DrekavacTerrainData/drekavac_river.res
+Added  DrekavacTerrainData/fir_forest.scn
+Added  DrekavacTerrainData/river_water.gdshader
+Added  DrekavacTerrainData/river_water.gdshader.uid
+Added  DrekavacTerrainData/riverbed_rocks.tscn
+Modified  DrekavacTerrainData/terrain3d-01-01.res
+Added  DrekavacTerrainData/terrain3d-01-02.res
+Added  DrekavacTerrainData/terrain3d-01-03.res
+Modified  DrekavacTerrainData/terrain3d-01_00.res
+Added  DrekavacTerrainData/terrain3d-02-01.res
+Added  DrekavacTerrainData/terrain3d-02-02.res
+Added  DrekavacTerrainData/terrain3d-02-03.res
+Added  DrekavacTerrainData/terrain3d-02_00.res
+Modified  DrekavacTerrainData/terrain3d_00-01.res
+Added  DrekavacTerrainData/terrain3d_00-02.res
+Added  DrekavacTerrainData/terrain3d_00-03.res
+Modified  DrekavacTerrainData/terrain3d_00_00.res
+Added  DrekavacTerrainData/terrain3d_01-01.res
+Added  DrekavacTerrainData/terrain3d_01-02.res
+Added  DrekavacTerrainData/terrain3d_01-03.res
+Added  DrekavacTerrainData/terrain3d_01_00.res
+Added  DrekavacTerrainData/terrain_assets.tres
+Added  Models/Vegetation/FirTree01/BlenderSource/.gdignore
+Added  Models/Vegetation/FirTree01/BlenderSource/fir_tree_01_1k.blend
+Added  Models/Vegetation/FirTree01/BlenderSource/textures/fir_tree_01_bark_diff_1k.png
+Added  Models/Vegetation/FirTree01/BlenderSource/textures/fir_tree_01_bark_disp_1k.png
+Added  Models/Vegetation/FirTree01/BlenderSource/textures/fir_tree_01_bark_nor_gl_1k.png
+Added  Models/Vegetation/FirTree01/BlenderSource/textures/fir_tree_01_bark_rough_1k.png
+Added  Models/Vegetation/FirTree01/BlenderSource/textures/fir_tree_01_trunk_a_diff_1k.png
+Added  Models/Vegetation/FirTree01/BlenderSource/textures/fir_tree_01_trunk_a_nor_gl_1k.png
+Added  Models/Vegetation/FirTree01/BlenderSource/textures/fir_tree_01_trunk_a_rough_1k.png
+Added  Models/Vegetation/FirTree01/BlenderSource/textures/fir_tree_01_trunk_b_diff_1k.png
+Added  Models/Vegetation/FirTree01/BlenderSource/textures/fir_tree_01_trunk_b_nor_gl_1k.png
+Added  Models/Vegetation/FirTree01/BlenderSource/textures/fir_tree_01_trunk_b_rough_1k.png
+Added  Models/Vegetation/FirTree01/BlenderSource/textures/fir_tree_01_trunk_c_diff_1k.png
+Added  Models/Vegetation/FirTree01/BlenderSource/textures/fir_tree_01_trunk_c_nor_gl_1k.png
+Added  Models/Vegetation/FirTree01/BlenderSource/textures/fir_tree_01_trunk_c_rough_1k.png
+Added  Models/Vegetation/FirTree01/BlenderSource/textures/fir_tree_01_twig_alpha_1k.png
+Added  Models/Vegetation/FirTree01/BlenderSource/textures/fir_tree_01_twig_diff_1k.png
+Added  Models/Vegetation/FirTree01/BlenderSource/textures/fir_tree_01_twig_mask_1k.png
+Added  Models/Vegetation/FirTree01/BlenderSource/textures/fir_tree_01_twig_nor_gl_1k.png
+Added  Models/Vegetation/FirTree01/BlenderSource/textures/fir_tree_01_twig_rough_1k.png
+Added  Models/Vegetation/FirTree01/fir_a_distant.png
+Added  Models/Vegetation/FirTree01/fir_a_distant.png.import
+Added  Models/Vegetation/FirTree01/fir_a_wide.res
+Added  Models/Vegetation/FirTree01/fir_b_distant.png
+Added  Models/Vegetation/FirTree01/fir_b_distant.png.import
+Added  Models/Vegetation/FirTree01/fir_b_wide.res
+Added  Models/Vegetation/FirTree01/fir_c_distant.png
+Added  Models/Vegetation/FirTree01/fir_c_distant.png.import
+Added  Models/Vegetation/FirTree01/fir_c_wide.res
+Added  Models/Vegetation/FirTree01/fir_trees.glb
+Added  Models/Vegetation/FirTree01/fir_trees.glb.import
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_bark_diff.png
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_bark_diff.png.import
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_bark_nor_gl.png
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_bark_nor_gl.png.import
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_trunk_a_diff.png
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_trunk_a_diff.png.import
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_trunk_a_nor_gl.png
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_trunk_a_nor_gl.png.import
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_trunk_b_diff.png
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_trunk_b_diff.png.import
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_trunk_b_nor_gl.png
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_trunk_b_nor_gl.png.import
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_trunk_c_diff.png
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_trunk_c_diff.png.import
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_trunk_c_nor_gl.png
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_trunk_c_nor_gl.png.import
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_twig_diff-fir_tree_01_twig_alpha.png
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_twig_diff-fir_tree_01_twig_alpha.png.import
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_twig_nor_gl.png
+Added  Models/Vegetation/FirTree01/fir_trees_fir_tree_01_twig_nor_gl.png.import
+Added  Textures/leaf_scattered_gravel_diff_1k.jpg
+Added  Textures/leaf_scattered_gravel_diff_1k.jpg.import
+Added  addons/terrain_3d/csharp/.gdignore
+Modified  addons/terrain_3d/src/double_slider.gd
+Added  demo/csharp/.gdignore
+Modified  project.godot</pre>
+</details>
+
 <details><summary>Improve shared player flashlight and decorate Baba Roga house</summary>
 
 [View commit](https://github.com/Ognen11/Balkan-urban-legends/commit/200e6f6bb780972e333c08529f2bca2d61db38cb)
@@ -149,16 +235,3 @@ Modified  character_body_3d.gd</pre>
 <pre>Removed  addons/terrain_3d/bin/~libterrain.windows.debug.x86_64.dll
 Modified  baba_roga.tscn</pre>
 </details>
-
-## Drekavac landscape and fir forest update
-
-- Expanded and reshaped the level into a 1.5 km by 1.5 km mountain valley with smoother, gradual hillsides.
-- Added a narrow winding river with transparent water, a shaped riverbed, and scattered river rocks.
-- Added forest ground textures with more fallen leaves and saved the terrain texture assignments for editing and play.
-- Imported Poly Haven's Fir Tree 01 with three fir variants and planted a dense forest on both hillsides.
-- Grounded the trees across their root footprint, thinned the highest ridges for future rocks, and removed the white Terrain3D placeholder instances.
-- The forest now contains 55,718 firs with trunks widened by 40%, matching trunk collisions, and updated distant tree images.
-- Saved the forest as `DrekavacTerrainData/fir_forest.scn`, instanced by `Drekavac.tscn`. Tree assets are in `Models/Vegetation/FirTree01/`.
-- Added the original Blender source and textures in `Models/Vegetation/FirTree01/BlenderSource/`. The Blender file uses Git LFS. Install Git LFS before cloning, or run `git lfs pull` after updating an existing clone.
-- Updated Terrain3D's editor scaling API and excluded its optional C# examples from GDScript project scanning.
-- The fir source is available under CC0 from [Poly Haven](https://polyhaven.com/a/fir_tree_01).
