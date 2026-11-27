@@ -14,6 +14,14 @@ For example, a Baba Roga update can change `baba_roga.tscn` and a texture it ref
 
 GitHub Actions refreshes the list below after pushes to main. Each entry links to the full diff, including changes to nodes and resource references inside scene files.
 
+## Latest local changes
+
+- **Character model:** Replaced the capsule appearance with an original clothed villager model in an olive jacket, indigo trousers, and brown boots. The capsule remains the movement collider. The camera hides the head from the first-person view.
+- **Flashlight arm:** Added a single right arm and hand posed around the flashlight grip. It follows the camera pitch. Removed the extra glove and sleeve meshes from the flashlight asset.
+- **Shared player:** The model, flashlight, and aim-following arm live in `player.tscn`, shared by Baba Roga and Drekavac.
+- **House interior:** Added a sofa, chair, gothic coffee table, bed, bedside stool, metal shelving, and a storage cart, along with their imported models and textures.
+- **House exterior and windows:** Added transparent collidable glass panes and rims to seven round windows, a wood-textured porch canopy with supporting beams, corner timbers, and cornice trim.
+
 <!-- game-changes -->
 
 <details><summary>Update Baba Roga and share the player and flashlight across both levels</summary>
