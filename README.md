@@ -24,6 +24,86 @@ GitHub Actions refreshes the list below after pushes to main. Each entry links t
 
 <!-- game-changes -->
 
+<details><summary>Improve shared player flashlight and decorate Baba Roga house</summary>
+
+[View commit](https://github.com/Ognen11/Balkan-urban-legends/commit/200e6f6bb780972e333c08529f2bca2d61db38cb)
+
+<pre>Modified  Models/Flashlight/hand_flashlight.glb
+Added  Models/House/GothicBed_01.glb
+Added  Models/House/GothicBed_01.glb.import
+Added  Models/House/GothicBed_01_GothicBed_01_diff_4k.png
+Added  Models/House/GothicBed_01_GothicBed_01_diff_4k.png.import
+Added  Models/House/GothicBed_01_GothicBed_01_metallic-GothicBed_01_roughness.png
+Added  Models/House/GothicBed_01_GothicBed_01_metallic-GothicBed_01_roughness.png.import
+Added  Models/House/GothicBed_01_GothicBed_01_nor_gl_4k.png
+Added  Models/House/GothicBed_01_GothicBed_01_nor_gl_4k.png.import
+Added  Models/House/gallinera_chair.glb
+Added  Models/House/gallinera_chair.glb.import
+Added  Models/House/gallinera_chair_gallinera_chair_diff_4k.png
+Added  Models/House/gallinera_chair_gallinera_chair_diff_4k.png.import
+Added  Models/House/gallinera_chair_gallinera_chair_nor_gl_4k.png
+Added  Models/House/gallinera_chair_gallinera_chair_nor_gl_4k.png.import
+Added  Models/House/gallinera_chair_gallinera_chair_rough_4k.png
+Added  Models/House/gallinera_chair_gallinera_chair_rough_4k.png.import
+Added  Models/House/gothic_coffee_table.glb
+Added  Models/House/gothic_coffee_table.glb.import
+Added  Models/House/gothic_coffee_table_gothic_coffee_table_diff_4k.png
+Added  Models/House/gothic_coffee_table_gothic_coffee_table_diff_4k.png.import
+Added  Models/House/gothic_coffee_table_gothic_coffee_table_nor_gl_4k.png
+Added  Models/House/gothic_coffee_table_gothic_coffee_table_nor_gl_4k.png.import
+Added  Models/House/gothic_coffee_table_gothic_coffee_table_rough_4k.png
+Added  Models/House/gothic_coffee_table_gothic_coffee_table_rough_4k.png.import
+Added  Models/House/industrial_storage_cart.glb
+Added  Models/House/industrial_storage_cart.glb.import
+Added  Models/House/industrial_storage_cart_industrial_storage_cart_diff_4k.png
+Added  Models/House/industrial_storage_cart_industrial_storage_cart_diff_4k.png.import
+Added  Models/House/industrial_storage_cart_industrial_storage_cart_metal-industrial_storage_cart_rough.png
+Added  Models/House/industrial_storage_cart_industrial_storage_cart_metal-industrial_storage_cart_rough.png.import
+Added  Models/House/industrial_storage_cart_industrial_storage_cart_nor_gl_4k.png
+Added  Models/House/industrial_storage_cart_industrial_storage_cart_nor_gl_4k.png.import
+Added  Models/House/sofa_03.glb
+Added  Models/House/sofa_03.glb.import
+Added  Models/House/sofa_03_sofa_03_diff.png.png
+Added  Models/House/sofa_03_sofa_03_diff.png.png.import
+Added  Models/House/sofa_03_sofa_03_diff_4k.png
+Added  Models/House/sofa_03_sofa_03_diff_4k.png.import
+Added  Models/House/sofa_03_sofa_03_nor_gl_4k.png
+Added  Models/House/sofa_03_sofa_03_nor_gl_4k.png.import
+Added  Models/House/sofa_03_sofa_03_rough_4k.png
+Added  Models/House/sofa_03_sofa_03_rough_4k.png.import
+Added  Models/House/steel_frame_shelves_03.glb
+Added  Models/House/steel_frame_shelves_03.glb.import
+Added  Models/House/steel_frame_shelves_03_steel_frame_shelves_03_diff_4k.png
+Added  Models/House/steel_frame_shelves_03_steel_frame_shelves_03_diff_4k.png.import
+Added  Models/House/steel_frame_shelves_03_steel_frame_shelves_03_drawers_diff_4k.png
+Added  Models/House/steel_frame_shelves_03_steel_frame_shelves_03_drawers_diff_4k.png.import
+Added  Models/House/steel_frame_shelves_03_steel_frame_shelves_03_drawers_nor_gl_4k.png
+Added  Models/House/steel_frame_shelves_03_steel_frame_shelves_03_drawers_nor_gl_4k.png.import
+Added  Models/House/steel_frame_shelves_03_steel_frame_shelves_03_drawers_rough_4k.png
+Added  Models/House/steel_frame_shelves_03_steel_frame_shelves_03_drawers_rough_4k.png.import
+Added  Models/House/steel_frame_shelves_03_steel_frame_shelves_03_metal-steel_frame_shelves_03_rough.png
+Added  Models/House/steel_frame_shelves_03_steel_frame_shelves_03_metal-steel_frame_shelves_03_rough.png.import
+Added  Models/House/steel_frame_shelves_03_steel_frame_shelves_03_nor_gl_4k.png
+Added  Models/House/steel_frame_shelves_03_steel_frame_shelves_03_nor_gl_4k.png.import
+Added  Models/House/window_glass.tscn
+Added  Models/House/wooden_stool_02.glb
+Added  Models/House/wooden_stool_02.glb.import
+Added  Models/House/wooden_stool_02_wooden_stool_02_diff_4k.png
+Added  Models/House/wooden_stool_02_wooden_stool_02_diff_4k.png.import
+Added  Models/House/wooden_stool_02_wooden_stool_02_nor_gl_4k.png
+Added  Models/House/wooden_stool_02_wooden_stool_02_nor_gl_4k.png.import
+Added  Models/House/wooden_stool_02_wooden_stool_02_rough_4k.png
+Added  Models/House/wooden_stool_02_wooden_stool_02_rough_4k.png.import
+Added  Models/Player/holding_arm.glb
+Added  Models/Player/holding_arm.glb.import
+Added  Models/Player/player_appearance.gd
+Added  Models/Player/player_appearance.gd.uid
+Added  Models/Player/villager.glb
+Added  Models/Player/villager.glb.import
+Modified  baba_roga.tscn
+Modified  player.tscn</pre>
+</details>
+
 <details><summary>Update Baba Roga and share the player and flashlight across both levels</summary>
 
 [View commit](https://github.com/Ognen11/Balkan-urban-legends/commit/708acca094cfb329694e8ae9c92d8db336a252bb)
