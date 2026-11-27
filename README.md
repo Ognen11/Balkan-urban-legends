@@ -14,13 +14,39 @@ For example, a Baba Roga update can change `baba_roga.tscn` and a texture it ref
 
 GitHub Actions refreshes the list below after pushes to main. Each entry links to the full diff, including changes to nodes and resource references inside scene files.
 
-## Latest local changes
+## Current controls
 
-- **Character model:** Replaced the capsule appearance with an original clothed villager model in an olive jacket, indigo trousers, and brown boots. The capsule remains the movement collider. The camera hides the head from the first-person view.
-- **Flashlight arm:** Added a single right arm and hand posed around the flashlight grip. It follows the camera pitch. Removed the extra glove and sleeve meshes from the flashlight asset.
-- **Shared player:** The model, flashlight, and aim-following arm live in `player.tscn`, shared by Baba Roga and Drekavac.
-- **House interior:** Added a sofa, chair, gothic coffee table, bed, bedside stool, metal shelving, and a storage cart, along with their imported models and textures.
-- **House exterior and windows:** Added transparent collidable glass panes and rims to seven round windows, a wood-textured porch canopy with supporting beams, corner timbers, and cornice trim.
+| Key | Action |
+| --- | --- |
+| W / A / S / D | Move |
+| Shift | Sprint while moving forward |
+| Space | Jump |
+| Mouse | Look |
+| E | Pick up the aimed item or open/close the aimed door |
+| 1–5 | Use the item in that inventory slot |
+| F | Cycle the flashlight through close range, far range, and off |
+| F1 | Thumbs-up gesture, restores 0.1 mental health on completion |
+| F2 | Middle-finger gesture, removes 0.1 mental health on completion |
+| Escape | Release/capture the mouse |
+
+Using the flashlight's inventory slot also cycles its modes. Using a cigarette slot starts the smoking animation and consumes one cigarette immediately. Using a battery slot consumes the battery and fully recharges the flashlight when its charge is below 100%.
+
+## Gameplay update — 2026-11-27
+
+- Rebuilt the shared player with the caretaker model, a connected rigged left hand, and reference-guided thumbs-up, middle-finger, and two-hand cigarette-lighting animations. Added a separate flashlight model with an arm that raises and lowers as its mode changes.
+- Added a white health bar starting at 100, a mental-health bar starting at 50/100, a dot crosshair, and five inventory slots with item icons, number-key labels, and remaining counts.
+- Looking directly at Baba Roga with an unobstructed crosshair drains 2 mental health per second. Finishing a cigarette restores 20 mental health, capped at 100.
+- Added a red-and-white cigarette pack to the first-floor coffee table. Aiming within 2.5 metres shows white “press E” text. Picking up the box removes it from the table and adds 20 cigarettes to inventory. Starting a smoke uses one cigarette. Emptying the box removes its inventory entry and restores a fresh box at the same table position.
+- The flashlight starts in slot 1 with 100% battery. Close range drains 0.3 percentage points per second, far range drains 5, and an empty flashlight switches off. Added three consumable spare batteries on the second-floor shelving unit, with accessible shelf collisions.
+- Added the detailed Baba Roga model, rig, face/hair/teeth/clothing textures, and staff attacks. Her current detection radius is 10 metres with a clear line of sight. A direct flashlight hit interrupts her attack and makes her flee for 5 seconds after the last hit, followed by searching and a 1-second detection delay.
+- Baba Roga roams independently, descends to the first floor, opens nearby unlocked doors, and leaves the house to choose random reachable destinations in the woods. Added woodland navigation, connected it to the house through the front-door link, corrected stair waypoint stalling and overlapping navigation edges, and added recovery when stuck. Full terrain collision supports roaming away from the player. Woodland navigation covers the area from approximately −128 to +128 metres on both horizontal axes.
+- Chase speeds increase as mental health falls. The five bands are 80–100 at 3 m/s, 60–under 80 at 4 m/s, 40–under 60 at 5 m/s, over 20–under 40 at 6 m/s, and 0–20 at 8 m/s. Staff hits deal 50 health damage at 50 or more mental health and kill the player below 50 mental health.
+- Added chase, damage-taken, door-opening, and door-closing sound effects. Doors show “press E to open” or “press E to close” when aimed at within interaction range.
+- Added the death screen with “Game Over!”, “you died...”, and a retry button.
+- Marked house window glass as transparent to flashlight detection.
+- Included the new scenes, scripts, models, textures, icons, sound files, navigation resources, and Godot import/UID files needed by these features.
+
+Validation included Godot scene imports, inventory pickups and consumption, flashlight drain and recharge, door interaction, enemy state transitions and damage thresholds, plus several three-minute autonomous roaming simulations through the house and woods.
 
 <!-- game-changes -->
 

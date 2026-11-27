@@ -1,0 +1,30 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Models/BabaRoga/BabaRoga.glb" id="Rig"]
+[ext_resource type="Script" path="res://Models/BabaRoga/baba_roga.gd" id="Reaction"]
+
+[ext_resource type="AudioStream" path="res://SFX/BabaRogaSFX/universfield-eerie-sudden-shock-454675.mp3" id="ChaseSound"]
+
+[sub_resource type="CapsuleShape3D" id="BabaRogaShape"]
+radius = 0.29
+height = 2.05
+
+[node name="BabaRoga" type="CharacterBody3D" groups=["baba_roga"]]
+floor_snap_length = 0.5
+script = ExtResource("Reaction")
+
+[node name="Model" parent="." instance=ExtResource("Rig")]
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+position = Vector3(0, 1.025, 0)
+shape = SubResource("BabaRogaShape")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.6
+target_desired_distance = 0.5
+
+[node name="ChaseSound" type="AudioStreamPlayer3D" parent="."]
+position = Vector3(0, 1.7, 0)
+stream = ExtResource("ChaseSound")
+unit_size = 6.0

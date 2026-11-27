@@ -1,0 +1,62 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Items/pickup.gd" id="Pickup"]
+
+[sub_resource type="StandardMaterial3D" id="Metal"]
+albedo_color = Color(0.55, 0.58, 0.61, 1)
+metallic = 0.8
+roughness = 0.28
+
+[sub_resource type="StandardMaterial3D" id="Wrap"]
+albedo_color = Color(0.72, 0.28, 0.055, 1)
+metallic = 0.25
+roughness = 0.4
+
+[sub_resource type="CylinderMesh" id="Cell"]
+material = SubResource("Wrap")
+top_radius = 0.018
+bottom_radius = 0.018
+height = 0.085
+
+[sub_resource type="CylinderMesh" id="Cap"]
+material = SubResource("Metal")
+top_radius = 0.0185
+bottom_radius = 0.0185
+height = 0.006
+
+[sub_resource type="CylinderMesh" id="Contact"]
+material = SubResource("Metal")
+top_radius = 0.007
+bottom_radius = 0.007
+height = 0.006
+
+[sub_resource type="BoxShape3D" id="Shape"]
+size = Vector3(0.10, 0.11, 0.08)
+
+[node name="Battery" type="Area3D" groups=["pickup"]]
+collision_layer = 128
+collision_mask = 0
+monitoring = false
+script = ExtResource("Pickup")
+item_id = &"battery"
+display_name = "Battery"
+
+[node name="Cell" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.045, 0)
+mesh = SubResource("Cell")
+
+[node name="Top" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.087, 0)
+mesh = SubResource("Cap")
+
+[node name="Bottom" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.003, 0)
+mesh = SubResource("Cap")
+
+[node name="Contact" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.093, 0)
+mesh = SubResource("Contact")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.045, 0)
+shape = SubResource("Shape")

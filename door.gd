@@ -4,8 +4,11 @@ extends Node3D
 @export var open_time: float = 0.4
 @export var interact_distance: float = 2.5
 @export var locked: bool = false
+@export var opening_clip: AudioStream
+@export var closing_clip: AudioStream
 
 @onready var pivot: Node3D = $Pivot
+@onready var movement_sound := get_node_or_null("MovementSound") as AudioStreamPlayer3D
 
 var is_open := false
 var _tween: Tween
@@ -13,23 +16,16 @@ var _closed_y: float
 
 func _ready() -> void:
 	_closed_y = pivot.rotation.y
-
-func _input(event: InputEvent) -> void:
-	if not event.is_action_pressed("interact"):
-		return
-	var player := get_tree().get_first_node_in_group("player") as Node3D
-	if player == null:
-		return
-	var door_center := pivot.to_global(Vector3(0.5, 1.0, 0.0))
-	var dist := door_center.distance_to(player.global_position)
-	print("Door distance: ", dist)
-	if dist <= interact_distance:
-		toggle()
+	add_to_group("interactable_door")
 
 func toggle() -> void:
 	if locked:
 		return
 	is_open = not is_open
+	if movement_sound:
+		movement_sound.stream = opening_clip if is_open else closing_clip
+		if movement_sound.stream:
+			movement_sound.play()
 	if _tween:
 		_tween.kill()
 	var target := _closed_y + deg_to_rad(open_angle_deg) if is_open else _closed_y

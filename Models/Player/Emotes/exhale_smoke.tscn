@@ -1,0 +1,45 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://Models/Player/Emotes/smoke_puff.png" id="SmokeTexture"]
+
+[sub_resource type="StandardMaterial3D" id="Smoke"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+billboard_mode = 1
+billboard_keep_scale = true
+albedo_texture = ExtResource("SmokeTexture")
+
+[sub_resource type="QuadMesh" id="SmokeQuad"]
+material = SubResource("Smoke")
+size = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="CloudFade"]
+offsets = PackedFloat32Array(0, 0.17, 0.55, 1)
+colors = PackedColorArray(0.80, 0.82, 0.85, 0, 0.80, 0.82, 0.85, 0.65, 0.79, 0.81, 0.84, 0.34, 0.78, 0.8, 0.82, 0)
+
+[sub_resource type="Curve" id="CloudGrowth"]
+_data = [Vector2(0, 0.26), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="ExhaleSmoke" type="CPUParticles3D"]
+position = Vector3(0, -0.115, -0.17)
+emitting = false
+amount = 48
+lifetime = 2.4
+one_shot = true
+explosiveness = 0.88
+randomness = 0.25
+direction = Vector3(0, 0.06, -1)
+spread = 20.0
+gravity = Vector3(0.03, 0.20, 0)
+initial_velocity_min = 0.28
+initial_velocity_max = 0.80
+damping_min = 0.08
+damping_max = 0.18
+scale_amount_min = 0.16
+scale_amount_max = 0.32
+scale_amount_curve = SubResource("CloudGrowth")
+color_ramp = SubResource("CloudFade")
+mesh = SubResource("SmokeQuad")
+cast_shadow = 0

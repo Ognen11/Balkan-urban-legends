@@ -1,0 +1,20 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Items/pickup.gd" id="Pickup"]
+[ext_resource type="PackedScene" path="res://Models/Player/Emotes/cigarette_pack.glb" id="Pack"]
+
+[sub_resource type="BoxShape3D" id="Shape"]
+size = Vector3(0.12, 0.19, 0.09)
+
+[node name="CigaretteBox" type="Area3D" groups=["pickup"]]
+collision_layer = 128
+collision_mask = 0
+monitoring = false
+script = ExtResource("Pickup")
+
+[node name="Model" parent="." instance=ExtResource("Pack")]
+scale = Vector3(2, 2, 2)
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.085, -0.015)
+shape = SubResource("Shape")

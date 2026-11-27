@@ -1,0 +1,731 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Models/Player/Emotes/cigarette_pack.glb" id="Pack"]
+[ext_resource type="Texture2D" path="res://Models/Player/Emotes/smoke_puff.png" id="SmokeTexture"]
+
+[ext_resource type="PackedScene" path="res://Models/Player/Emotes/left_hand.glb" id="LeftHand"]
+
+[sub_resource type="StandardMaterial3D" id="Cloth"]
+albedo_color = Color(0.08,0.19,0.23, 1)
+roughness = 0.76
+
+[sub_resource type="StandardMaterial3D" id="Ribbing"]
+albedo_color = Color(0.15,0.21,0.19, 1)
+roughness = 0.76
+
+[sub_resource type="StandardMaterial3D" id="Thread"]
+albedo_color = Color(0.26,0.29,0.23, 1)
+roughness = 0.76
+
+[sub_resource type="StandardMaterial3D" id="Paper"]
+albedo_color = Color(0.82,0.8,0.73, 1)
+roughness = 0.76
+
+[sub_resource type="StandardMaterial3D" id="Cork"]
+albedo_color = Color(0.56,0.35,0.15, 1)
+roughness = 0.76
+
+[sub_resource type="StandardMaterial3D" id="Fleck"]
+albedo_color = Color(0.26,0.14,0.065, 1)
+roughness = 0.76
+
+[sub_resource type="StandardMaterial3D" id="Gold"]
+albedo_color = Color(0.73,0.47,0.18, 1)
+roughness = 0.31
+metallic = 0.7
+
+[sub_resource type="StandardMaterial3D" id="Tobacco"]
+albedo_color = Color(0.2,0.11,0.055, 1)
+roughness = 0.76
+
+[sub_resource type="StandardMaterial3D" id="Ash"]
+albedo_color = Color(0.27,0.25,0.23, 1)
+roughness = 0.76
+
+[sub_resource type="StandardMaterial3D" id="Steel"]
+albedo_color = Color(0.15,0.17,0.19, 1)
+roughness = 0.31
+metallic = 0.7
+
+[sub_resource type="StandardMaterial3D" id="Brass"]
+albedo_color = Color(0.45,0.28,0.12, 1)
+roughness = 0.31
+metallic = 0.7
+
+[sub_resource type="StandardMaterial3D" id="Ember"]
+albedo_color = Color(0.80, 0.13, 0.025, 1)
+emission_enabled = true
+emission = Color(1, 0.15, 0.015, 1)
+emission_energy_multiplier = 1.6
+
+[sub_resource type="StandardMaterial3D" id="FlameOuter"]
+shading_mode = 0
+albedo_color = Color(1.0, 0.37, 0.025, 1)
+emission_enabled = true
+emission = Color(1, 0.36, 0.03, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="StandardMaterial3D" id="FlameCore"]
+shading_mode = 0
+albedo_color = Color(1.0, 0.81, 0.42, 1)
+emission_enabled = true
+emission = Color(1, 0.72, 0.32, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="SphereMesh" id="Shape0"]
+material = SubResource("Cloth")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="CylinderMesh" id="Shape1"]
+material = SubResource("Ribbing")
+top_radius = 0.043
+bottom_radius = 0.043
+height = 0.044
+radial_segments = 28
+rings = 0
+
+[sub_resource type="SphereMesh" id="Shape2"]
+material = SubResource("Thread")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape3"]
+material = SubResource("Thread")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape4"]
+material = SubResource("Thread")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape5"]
+material = SubResource("Thread")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape6"]
+material = SubResource("Thread")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape7"]
+material = SubResource("Thread")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape8"]
+material = SubResource("Thread")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape9"]
+material = SubResource("Thread")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape10"]
+material = SubResource("Thread")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape11"]
+material = SubResource("Thread")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape12"]
+material = SubResource("Thread")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape13"]
+material = SubResource("Thread")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="CylinderMesh" id="Shape41"]
+material = SubResource("Paper")
+top_radius = 0.0046
+bottom_radius = 0.0046
+height = 0.058
+radial_segments = 28
+rings = 0
+
+[sub_resource type="CylinderMesh" id="Shape42"]
+material = SubResource("Cork")
+top_radius = 0.00465
+bottom_radius = 0.00465
+height = 0.022
+radial_segments = 28
+rings = 0
+
+[sub_resource type="CylinderMesh" id="Shape43"]
+material = SubResource("Gold")
+top_radius = 0.00472
+bottom_radius = 0.00472
+height = 0.0023
+radial_segments = 28
+rings = 0
+
+[sub_resource type="CylinderMesh" id="Shape44"]
+material = SubResource("Tobacco")
+top_radius = 0.0042
+bottom_radius = 0.0042
+height = 0.002
+radial_segments = 28
+rings = 0
+
+[sub_resource type="CylinderMesh" id="Shape45"]
+material = SubResource("Ash")
+top_radius = 0.00472
+bottom_radius = 0.00472
+height = 0.004
+radial_segments = 28
+rings = 0
+
+[sub_resource type="CylinderMesh" id="Shape46"]
+material = SubResource("Ember")
+top_radius = 0.0036
+bottom_radius = 0.0036
+height = 0.0018
+radial_segments = 28
+rings = 0
+
+[sub_resource type="SphereMesh" id="Shape47"]
+material = SubResource("Fleck")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape48"]
+material = SubResource("Fleck")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape49"]
+material = SubResource("Fleck")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape50"]
+material = SubResource("Fleck")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape51"]
+material = SubResource("Fleck")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape52"]
+material = SubResource("Fleck")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape53"]
+material = SubResource("Fleck")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape54"]
+material = SubResource("Fleck")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape55"]
+material = SubResource("Fleck")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape56"]
+material = SubResource("Fleck")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape57"]
+material = SubResource("Fleck")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape58"]
+material = SubResource("Fleck")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape59"]
+material = SubResource("Fleck")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape60"]
+material = SubResource("Fleck")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape61"]
+material = SubResource("Fleck")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape62"]
+material = SubResource("Fleck")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape63"]
+material = SubResource("Fleck")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="BoxMesh" id="Shape64"]
+material = SubResource("Steel")
+size = Vector3(0.030, 0.046, 0.016)
+
+[sub_resource type="BoxMesh" id="Shape65"]
+material = SubResource("Steel")
+size = Vector3(0.025, 0.013, 0.016)
+
+[sub_resource type="CylinderMesh" id="Shape66"]
+material = SubResource("Brass")
+top_radius = 0.006
+bottom_radius = 0.006
+height = 0.013
+radial_segments = 28
+rings = 0
+
+[sub_resource type="SphereMesh" id="Shape67"]
+material = SubResource("FlameOuter")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="SphereMesh" id="Shape68"]
+material = SubResource("FlameCore")
+radius = 0.5
+height = 1.0
+radial_segments = 20
+rings = 12
+
+[sub_resource type="StandardMaterial3D" id="Smoke"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+billboard_mode = 1
+billboard_keep_scale = true
+albedo_texture = ExtResource("SmokeTexture")
+
+[sub_resource type="QuadMesh" id="SmokeQuad"]
+material = SubResource("Smoke")
+size = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="CloudFade"]
+offsets = PackedFloat32Array(0, 0.17, 0.55, 1)
+colors = PackedColorArray(0.80, 0.82, 0.85, 0, 0.80, 0.82, 0.85, 0.65, 0.79, 0.81, 0.84, 0.34, 0.78, 0.8, 0.82, 0)
+
+[sub_resource type="Curve" id="CloudGrowth"]
+_data = [Vector2(0, 0.26), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="FirstPersonHand" type="Node3D"]
+visible = false
+
+[node name="CanvasSleeve" type="MeshInstance3D" parent="."]
+position = Vector3(-0.014,-0.124,-0.012)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape0")
+scale = Vector3(0.118,0.252,0.112)
+
+[node name="Cuff" type="MeshInstance3D" parent="."]
+position = Vector3(0,-0.015,0)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape1")
+
+[node name="CuffStitch0" type="MeshInstance3D" parent="."]
+position = Vector3(0.042,0.001,0)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape2")
+scale = Vector3(0.003,0.011,0.003)
+
+[node name="CuffStitch1" type="MeshInstance3D" parent="."]
+position = Vector3(0.036373066958946425,0.001,0.020999999999999998)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape3")
+scale = Vector3(0.003,0.011,0.003)
+
+[node name="CuffStitch2" type="MeshInstance3D" parent="."]
+position = Vector3(0.021000000000000005,0.001,0.036373066958946425)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape4")
+scale = Vector3(0.003,0.011,0.003)
+
+[node name="CuffStitch3" type="MeshInstance3D" parent="."]
+position = Vector3(2.571758278209442e-18,0.001,0.042)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape5")
+scale = Vector3(0.003,0.011,0.003)
+
+[node name="CuffStitch4" type="MeshInstance3D" parent="."]
+position = Vector3(-0.02099999999999999,0.001,0.036373066958946425)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape6")
+scale = Vector3(0.003,0.011,0.003)
+
+[node name="CuffStitch5" type="MeshInstance3D" parent="."]
+position = Vector3(-0.036373066958946425,0.001,0.020999999999999998)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape7")
+scale = Vector3(0.003,0.011,0.003)
+
+[node name="CuffStitch6" type="MeshInstance3D" parent="."]
+position = Vector3(-0.042,0.001,5.143516556418884e-18)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape8")
+scale = Vector3(0.003,0.011,0.003)
+
+[node name="CuffStitch7" type="MeshInstance3D" parent="."]
+position = Vector3(-0.03637306695894643,0.001,-0.02099999999999999)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape9")
+scale = Vector3(0.003,0.011,0.003)
+
+[node name="CuffStitch8" type="MeshInstance3D" parent="."]
+position = Vector3(-0.02100000000000002,0.001,-0.03637306695894642)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape10")
+scale = Vector3(0.003,0.011,0.003)
+
+[node name="CuffStitch9" type="MeshInstance3D" parent="."]
+position = Vector3(-7.715274834628325e-18,0.001,-0.042)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape11")
+scale = Vector3(0.003,0.011,0.003)
+
+[node name="CuffStitch10" type="MeshInstance3D" parent="."]
+position = Vector3(0.021000000000000005,0.001,-0.036373066958946425)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape12")
+scale = Vector3(0.003,0.011,0.003)
+
+[node name="CuffStitch11" type="MeshInstance3D" parent="."]
+position = Vector3(0.03637306695894641,0.001,-0.02100000000000002)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape13")
+scale = Vector3(0.003,0.011,0.003)
+
+[node name="Anatomy" parent="." instance=ExtResource("LeftHand")]
+
+[node name="Pack" parent="." instance=ExtResource("Pack")]
+visible = false
+position = Vector3(-0.005, 0.045, 0.025)
+rotation = Vector3(-0.15, -0.2, -0.24)
+
+[node name="Cigarette" type="Node3D" parent="."]
+visible = false
+position = Vector3(-0.018, 0.134, 0.034)
+
+[node name="PaperTube" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(0,0,-0.043)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape41")
+rotation = Vector3(-1.5707963, 0, 0)
+
+[node name="Filter" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(0,0,-0.003)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape42")
+rotation = Vector3(-1.5707963, 0, 0)
+
+[node name="FilterBand" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(0,0,-0.0145)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape43")
+rotation = Vector3(-1.5707963, 0, 0)
+
+[node name="CutTobacco" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(0,0,-0.073)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape44")
+rotation = Vector3(-1.5707963, 0, 0)
+
+[node name="LitTip" type="Node3D" parent="Cigarette"]
+visible = false
+position = Vector3(0, 0, -0.072)
+
+[node name="CharRing" type="MeshInstance3D" parent="Cigarette/LitTip"]
+position = Vector3(0,0,0.001)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape45")
+rotation = Vector3(-1.5707963, 0, 0)
+
+[node name="GlowingTobacco" type="MeshInstance3D" parent="Cigarette/LitTip"]
+position = Vector3(0,0,-0.002)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape46")
+rotation = Vector3(-1.5707963, 0, 0)
+
+[node name="CorkSpeck0" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(0.00455,0,0.006)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape47")
+scale = Vector3(0.0007,0.0007,0.001)
+
+[node name="CorkSpeck1" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(-0.0033550184687297264,0.0030734916747052433,0.0034000000000000002)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape48")
+scale = Vector3(0.0007,0.0007,0.001)
+
+[node name="CorkSpeck2" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(0.0003977577694582681,-0.004532580805328857,0.0008000000000000004)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape49")
+scale = Vector3(0.0007,0.0007,0.001)
+
+[node name="CorkSpeck3" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(0.0027684318038447902,0.003610856594696151,-0.0017999999999999995)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape50")
+scale = Vector3(0.0007,0.0007,0.001)
+
+[node name="CorkSpeck4" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(-0.004480456596411246,-0.0007924699916558093,-0.004399999999999999)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape51")
+scale = Vector3(0.0007,0.0007,0.001)
+
+[node name="CorkSpeck5" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(0.003839047154090005,-0.002442174635171169,-0.006999999999999999)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape52")
+scale = Vector3(0.0007,0.0007,0.001)
+
+[node name="CorkSpeck6" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(-0.0011811144384442553,0.004394026477309679,-0.0096)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape53")
+scale = Vector3(0.0007,0.0007,0.001)
+
+[node name="CorkSpeck7" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(-0.0020972182509410753,-0.004037842939976698,-0.0122)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape54")
+scale = Vector3(0.0007,0.0007,0.001)
+
+[node name="CorkSpeck8" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(0.004273952225197821,0.0015607153413504332,0.006)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape55")
+scale = Vector3(0.0007,0.0007,0.001)
+
+[node name="CorkSpeck9" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(-0.004205721814996156,0.0017362039093566871,0.0034000000000000002)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape56")
+scale = Vector3(0.0007,0.0007,0.001)
+
+[node name="CorkSpeck10" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(0.0019283661764072824,-0.004121153223272384,0.0008000000000000004)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape57")
+scale = Vector3(0.0007,0.0007,0.001)
+
+[node name="CorkSpeck11" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(0.001361895821009273,0.004341398366047221,-0.0017999999999999995)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape58")
+scale = Vector3(0.0007,0.0007,0.001)
+
+[node name="CorkSpeck12" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(-0.003936799421230115,-0.0022812519187942024,-0.004399999999999999)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape59")
+scale = Vector3(0.0007,0.0007,0.001)
+
+[node name="CorkSpeck13" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(0.004443833746424369,-0.0009771599839023082,-0.006999999999999999)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape60")
+scale = Vector3(0.0007,0.0007,0.001)
+
+[node name="CorkSpeck14" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(-0.0026166705968877616,0.003722302377209977,-0.0096)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape61")
+scale = Vector3(0.0007,0.0007,0.001)
+
+[node name="CorkSpeck15" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(-0.0005849422391098726,-0.004512243630047598,-0.0122)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape62")
+scale = Vector3(0.0007,0.0007,0.001)
+
+[node name="CorkSpeck16" type="MeshInstance3D" parent="Cigarette"]
+position = Vector3(0.0034793044497905064,0.0029320539806879384,0.006)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape63")
+scale = Vector3(0.0007,0.0007,0.001)
+
+[node name="Lighter" type="Node3D" parent="."]
+visible = false
+position = Vector3(-0.0085, 0.091, -0.041)
+rotation = Vector3(0.10, 0, -0.24)
+
+[node name="Case" type="MeshInstance3D" parent="Lighter"]
+position = Vector3(0,0,0)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape64")
+
+[node name="HingedLid" type="MeshInstance3D" parent="Lighter"]
+position = Vector3(-0.017,0.022,0)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape65")
+rotation = Vector3(0, 0, -0.72)
+
+[node name="WindGuard" type="MeshInstance3D" parent="Lighter"]
+position = Vector3(0,0.022,0)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape66")
+
+[node name="Flame" type="Node3D" parent="Lighter"]
+visible = false
+position = Vector3(0, 0.038, 0)
+
+[node name="OuterFlame" type="MeshInstance3D" parent="Lighter/Flame"]
+position = Vector3(0,0.01,0)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape67")
+scale = Vector3(0.01,0.033,0.009)
+
+[node name="BrightCore" type="MeshInstance3D" parent="Lighter/Flame"]
+position = Vector3(0,0.006,0.003)
+layers = 4
+cast_shadow = 0
+mesh = SubResource("Shape68")
+scale = Vector3(0.0055,0.019,0.005)
+
+[node name="Glow" type="OmniLight3D" parent="Lighter/Flame"]
+light_color = Color(1, 0.47, 0.17, 1)
+light_energy = 0.012
+light_cull_mask = 4
+omni_range = 0.35
+
+[node name="TipSmoke" type="CPUParticles3D" parent="Cigarette"]
+position = Vector3(0, 0, -0.075)
+emitting = false
+amount = 18
+lifetime = 1.5
+randomness = 0.28
+direction = Vector3(0, 1, 0)
+spread = 13.0
+gravity = Vector3(0.045, 0.07, 0)
+initial_velocity_min = 0.035
+initial_velocity_max = 0.085
+scale_amount_min = 0.025
+scale_amount_max = 0.056
+scale_amount_curve = SubResource("CloudGrowth")
+color_ramp = SubResource("CloudFade")
+mesh = SubResource("SmokeQuad")
+cast_shadow = 0

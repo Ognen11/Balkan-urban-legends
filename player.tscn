@@ -1,41 +1,369 @@
 [gd_scene format=3 uid="uid://i5avv3fex3h4"]
 
-[ext_resource type="Script" uid="uid://ca820aa0w64og" path="res://character_body_3d.gd" id="1_4flbx"]
-[ext_resource type="PackedScene" uid="uid://fml1763ot3mc" path="res://Models/Flashlight/hand_flashlight.glb" id="3_g8ltq"]
-[ext_resource type="Script" uid="uid://s6fpllsgo4ag" path="res://Models/Flashlight/flashlight.gd" id="13_flashlight"]
+[ext_resource type="Texture2D" path="res://Items/cigarette_box_icon.png" id="CigaretteIcon"]
 
-[ext_resource type="PackedScene" path="res://Models/Player/villager.glb" id="Villager"]
-[ext_resource type="Script" path="res://Models/Player/player_appearance.gd" id="Appearance"]
+[ext_resource type="Script" path="res://character_body_3d.gd" id="Movement"]
+[ext_resource type="PackedScene" path="res://Models/Player/caretaker.tscn" id="Character"]
+[ext_resource type="PackedScene" path="res://Models/Flashlight/torch.tscn" id="Torch"]
+[ext_resource type="Script" path="res://Models/Flashlight/flashlight.gd" id="LightControl"]
 
-[ext_resource type="PackedScene" path="res://Models/Player/holding_arm.glb" id="HoldingArm"]
+[ext_resource type="AudioStream" path="res://SFX/BabaRogaSFX/damage_taken.mp3" id="DamageSound"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qxqpu"]
+[ext_resource type="Script" path="res://Models/Player/Emotes/player_emotes.gd" id="Emotes"]
+[ext_resource type="PackedScene" path="res://Models/Player/Emotes/first_person_hand.tscn" id="EmoteHand"]
+[ext_resource type="PackedScene" path="res://Models/Player/Emotes/exhale_smoke.tscn" id="Exhale"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1707431192 groups=["player"]]
-script = ExtResource("1_4flbx")
+[sub_resource type="CapsuleShape3D" id="BodyShape"]
+radius = 0.5
+height = 2.0
 
-[node name="Head" type="Node3D" parent="." unique_id=1531796397]
+[sub_resource type="StyleBoxFlat" id="HealthBackground"]
+bg_color = Color(0.058, 0.046, 0.049, 0.92)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.58, 0.45, 0.44, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_left = 4
+corner_radius_bottom_right = 4
 
-[node name="Camera3D" type="Camera3D" parent="Head" unique_id=932936924]
+[sub_resource type="StyleBoxFlat" id="HealthFill"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_left = 4
+corner_radius_bottom_right = 4
+
+[sub_resource type="StyleBoxFlat" id="CrosshairDot"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_left = 2
+corner_radius_bottom_right = 2
+
+[node name="CharacterBody3D" type="CharacterBody3D" groups=["player"]]
+script = ExtResource("Movement")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BodyShape")
+
+[node name="Head" type="Node3D" parent="."]
+position = Vector3(0, 0.72, -0.075)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
 cull_mask = 1048573
-transform = Transform3D(1, 0, 0, 0, 0.9909687, 0.1340937, 0, -0.1340937, 0.9909687, 0, 0.7964287, -0.0012702942)
 
-[node name="RightArm" parent="." instance=ExtResource("HoldingArm")]
-position = Vector3(0.214, 0.422, 0)
+[node name="Emotes" type="Node3D" parent="Head/Camera3D"]
+script = ExtResource("Emotes")
 
-[node name="First-person flashlight" parent="RightArm" unique_id=886173132 instance=ExtResource("3_g8ltq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014, 0.038, -0.45)
+[node name="Hand" parent="Head/Camera3D/Emotes" instance=ExtResource("EmoteHand")]
 
-[node name="FlashlightBeam" type="SpotLight3D" parent="RightArm/First-person flashlight" unique_id=977947553]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019, 0.051, -0.164)
+[node name="EmoteFill" type="OmniLight3D" parent="Head/Camera3D/Emotes/Hand"]
+position = Vector3(0.08, 0.16, 0.16)
+light_color = Color(0.79, 0.88, 1, 1)
+light_energy = 0.14
+light_cull_mask = 4
+omni_range = 0.62
+
+[node name="Exhale" parent="Head/Camera3D/Emotes" instance=ExtResource("Exhale")]
+
+[node name="Caretaker" parent="." instance=ExtResource("Character")]
+
+[node name="Flashlight" parent="Caretaker/RightShoulder/Elbow" instance=ExtResource("Torch")]
+position = Vector3(-0.007, -0.251, 0.029)
+rotation = Vector3(-1.95477, 0, 0)
+
+[node name="Beam" type="SpotLight3D" parent="Caretaker/RightShoulder/Elbow/Flashlight" groups=["player_flashlight"]]
+position = Vector3(-0.019, 0.051, -0.164)
 visible = false
 light_color = Color(1, 0.94, 0.82, 1)
 shadow_enabled = true
-spot_attenuation = 0.65
-script = ExtResource("13_flashlight")
+script = ExtResource("LightControl")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=13280136]
-shape = SubResource("CapsuleShape3D_qxqpu")
+[node name="DamageSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("DamageSound")
 
-[node name="Villager" parent="." unique_id=1381282346 instance=ExtResource("Villager")]
-script = ExtResource("Appearance")
+[node name="HealthHUD" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="HealthHUD"]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 244.0
+offset_bottom = 52.0
+mouse_filter = 2
+theme_override_styles/background = SubResource("HealthBackground")
+theme_override_styles/fill = SubResource("HealthFill")
+value = 100.0
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="HealthHUD/HealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0.07, 0.03, 0.04, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 15
+text = "HEALTH   100 / 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+
+[node name="MentalHealthBar" type="ProgressBar" parent="HealthHUD"]
+offset_left = 24.0
+offset_top = 60.0
+offset_right = 244.0
+offset_bottom = 88.0
+mouse_filter = 2
+theme_override_styles/background = SubResource("HealthBackground")
+theme_override_styles/fill = SubResource("HealthFill")
+step = 0.1
+value = 50.0
+show_percentage = false
+
+[node name="MentalHealthLabel" type="Label" parent="HealthHUD/MentalHealthBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0.03, 0.03, 0.03, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 15
+text = "MENTAL HEALTH   50.0 / 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Crosshair" type="Panel" parent="HealthHUD"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("CrosshairDot")
+
+[node name="PickupPrompt" type="Label" parent="HealthHUD"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -160.0
+offset_right = 100.0
+offset_bottom = -130.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 22
+text = "press E"
+horizontal_alignment = 1
+
+[node name="Inventory" type="HBoxContainer" parent="HealthHUD"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -202.0
+offset_top = -100.0
+offset_right = 202.0
+offset_bottom = -28.0
+mouse_filter = 2
+theme_override_constants/separation = 8
+[node name="Slot1" type="PanelContainer" parent="HealthHUD/Inventory"]
+custom_minimum_size = Vector2(74, 72)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("HealthBackground")
+
+[node name="Key" type="Label" parent="HealthHUD/Inventory/Slot1"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "1"
+[node name="Icon" type="TextureRect" parent="HealthHUD/Inventory/Slot1"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("CigaretteIcon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Item" type="Label" parent="HealthHUD/Inventory/Slot1"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Slot2" type="PanelContainer" parent="HealthHUD/Inventory"]
+custom_minimum_size = Vector2(74, 72)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("HealthBackground")
+
+[node name="Key" type="Label" parent="HealthHUD/Inventory/Slot2"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "2"
+[node name="Icon" type="TextureRect" parent="HealthHUD/Inventory/Slot2"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("CigaretteIcon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Item" type="Label" parent="HealthHUD/Inventory/Slot2"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Slot3" type="PanelContainer" parent="HealthHUD/Inventory"]
+custom_minimum_size = Vector2(74, 72)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("HealthBackground")
+
+[node name="Key" type="Label" parent="HealthHUD/Inventory/Slot3"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "3"
+[node name="Icon" type="TextureRect" parent="HealthHUD/Inventory/Slot3"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("CigaretteIcon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Item" type="Label" parent="HealthHUD/Inventory/Slot3"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Slot4" type="PanelContainer" parent="HealthHUD/Inventory"]
+custom_minimum_size = Vector2(74, 72)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("HealthBackground")
+
+[node name="Key" type="Label" parent="HealthHUD/Inventory/Slot4"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "4"
+[node name="Icon" type="TextureRect" parent="HealthHUD/Inventory/Slot4"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("CigaretteIcon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Item" type="Label" parent="HealthHUD/Inventory/Slot4"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Slot5" type="PanelContainer" parent="HealthHUD/Inventory"]
+custom_minimum_size = Vector2(74, 72)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("HealthBackground")
+
+[node name="Key" type="Label" parent="HealthHUD/Inventory/Slot5"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "5"
+[node name="Icon" type="TextureRect" parent="HealthHUD/Inventory/Slot5"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("CigaretteIcon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Item" type="Label" parent="HealthHUD/Inventory/Slot5"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="DeathScreen" type="ColorRect" parent="HealthHUD"]
+process_mode = 2
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043, 0.016, 0.020, 0.97)
+
+[node name="Content" type="CenterContainer" parent="HealthHUD/DeathScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Message" type="VBoxContainer" parent="HealthHUD/DeathScreen/Content"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Title" type="Label" parent="HealthHUD/DeathScreen/Content/Message"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.31, 0.33, 1)
+theme_override_font_sizes/font_size = 60
+text = "Game Over!"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="HealthHUD/DeathScreen/Content/Message"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.84, 0.76, 0.77, 1)
+theme_override_font_sizes/font_size = 24
+text = "you died..."
+horizontal_alignment = 1
+
+[node name="Retry" type="Button" parent="HealthHUD/DeathScreen/Content/Message"]
+custom_minimum_size = Vector2(144, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Try Again"
+
+[editable path="Caretaker"]

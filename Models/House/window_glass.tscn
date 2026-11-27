@@ -30,7 +30,7 @@ outer_radius = 0.815
 rings = 64
 ring_segments = 8
 
-[node name="WindowGlass" type="StaticBody3D"]
+[node name="WindowGlass" type="StaticBody3D" groups=["flashlight_transparent"]]
 
 [node name="Pane" type="MeshInstance3D" parent="."]
 cast_shadow = 0
