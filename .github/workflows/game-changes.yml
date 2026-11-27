@@ -1,0 +1,27 @@
+name: Update game changes
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: game-changes-main
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - run: node .github/update-readme.mjs
+      - name: Save updated change list
+        run: |
+          if git diff --quiet -- README.md; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md
+          git commit -m 'Refresh recent game changes'
+          git push origin HEAD:main
