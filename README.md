@@ -50,9 +50,9 @@ Validation included Godot scene imports, inventory pickups and consumption, flas
 
 <!-- game-changes -->
 
-<details><summary>Build Drekavac mountain valley and dense fir forest</summary>
+<details><summary>Merge remote-tracking branch 'origin/main'</summary>
 
-[View commit](https://github.com/Ognen11/Balkan-urban-legends/commit/1093c35cf3054892b17a5ec8b2a04215ff4c9940)
+[View commit](https://github.com/Ognen11/Balkan-urban-legends/commit/cc86a106d62b9f671afc69f848d47ac44bac7e26)
 
 <pre>Modified  Drekavac.tscn
 Added  DrekavacTerrainData/drekavac_river.res
@@ -133,6 +133,86 @@ Added  Textures/leaf_scattered_gravel_diff_1k.jpg.import
 Added  addons/terrain_3d/csharp/.gdignore
 Modified  addons/terrain_3d/src/double_slider.gd
 Added  demo/csharp/.gdignore
+Modified  project.godot</pre>
+</details>
+
+<details><summary>Add inventory, mental health, battery-powered flashlight and roaming Baba Roga</summary>
+
+[View commit](https://github.com/Ognen11/Balkan-urban-legends/commit/09253b4425a49c7b485df2093f28f1e78e2227dc)
+
+<pre>Added  Items/battery.tscn
+Added  Items/battery_icon.png
+Added  Items/battery_icon.png.import
+Added  Items/cigarette_box.tscn
+Added  Items/cigarette_box_icon.png
+Added  Items/cigarette_box_icon.png.import
+Added  Items/flashlight_icon.png
+Added  Items/flashlight_icon.png.import
+Added  Items/pickup.gd
+Added  Items/pickup.gd.uid
+Added  Models/BabaRoga/BabaRoga.glb
+Added  Models/BabaRoga/BabaRoga.glb.import
+Added  Models/BabaRoga/BabaRoga.tscn
+Added  Models/BabaRoga/BabaRoga_AmberIris.png
+Added  Models/BabaRoga/BabaRoga_AmberIris.png.import
+Added  Models/BabaRoga/BabaRoga_AshHair.png
+Added  Models/BabaRoga/BabaRoga_AshHair.png.import
+Added  Models/BabaRoga/BabaRoga_Blackthorn.png
+Added  Models/BabaRoga/BabaRoga_Blackthorn.png.import
+Added  Models/BabaRoga/BabaRoga_CloudedEye.png
+Added  Models/BabaRoga/BabaRoga_CloudedEye.png.import
+Added  Models/BabaRoga/BabaRoga_CreasesAndLips.png
+Added  Models/BabaRoga/BabaRoga_CreasesAndLips.png.import
+Added  Models/BabaRoga/BabaRoga_DeepShadow.png
+Added  Models/BabaRoga/BabaRoga_DeepShadow.png.import
+Added  Models/BabaRoga/BabaRoga_DriedLinen.png
+Added  Models/BabaRoga/BabaRoga_DriedLinen.png.import
+Added  Models/BabaRoga/BabaRoga_HairUnderlayer.png
+Added  Models/BabaRoga/BabaRoga_HairUnderlayer.png.import
+Added  Models/BabaRoga/BabaRoga_PeatWool.png
+Added  Models/BabaRoga/BabaRoga_PeatWool.png.import
+Added  Models/BabaRoga/BabaRoga_StainedIvory.png
+Added  Models/BabaRoga/BabaRoga_StainedIvory.png.import
+Added  Models/BabaRoga/BabaRoga_WeatheredSkin.png
+Added  Models/BabaRoga/BabaRoga_WeatheredSkin.png.import
+Added  Models/BabaRoga/baba_roga.gd
+Added  Models/BabaRoga/baba_roga.gd.uid
+Added  Models/BabaRoga/house_navigation.tres
+Added  Models/BabaRoga/woods_navigation.res
+Modified  Models/Flashlight/flashlight.gd
+Added  Models/Flashlight/torch.tscn
+Modified  Models/House/window_glass.tscn
+Added  Models/Player/Emotes/cigarette_pack.glb
+Added  Models/Player/Emotes/cigarette_pack.glb.import
+Added  Models/Player/Emotes/cigarette_pack_cigarette_pack_diff.png
+Added  Models/Player/Emotes/cigarette_pack_cigarette_pack_diff.png.import
+Added  Models/Player/Emotes/cigarette_pack_cigarette_pack_metal-cigarette_pack_rough.png
+Added  Models/Player/Emotes/cigarette_pack_cigarette_pack_metal-cigarette_pack_rough.png.import
+Added  Models/Player/Emotes/cigarette_pack_cigarette_pack_nor_gl.png
+Added  Models/Player/Emotes/cigarette_pack_cigarette_pack_nor_gl.png.import
+Added  Models/Player/Emotes/exhale_smoke.tscn
+Added  Models/Player/Emotes/first_person_hand.tscn
+Added  Models/Player/Emotes/left_hand.glb
+Added  Models/Player/Emotes/left_hand.glb.import
+Added  Models/Player/Emotes/player_emotes.gd
+Added  Models/Player/Emotes/player_emotes.gd.uid
+Added  Models/Player/Emotes/smoke_puff.png
+Added  Models/Player/Emotes/smoke_puff.png.import
+Added  Models/Player/caretaker.tscn
+Added  SFX/BabaRogaSFX/damage_taken.mp3
+Added  SFX/BabaRogaSFX/damage_taken.mp3.import
+Added  SFX/BabaRogaSFX/door_close.wav
+Added  SFX/BabaRogaSFX/door_close.wav.import
+Added  SFX/BabaRogaSFX/door_open.wav
+Added  SFX/BabaRogaSFX/door_open.wav.import
+Added  SFX/BabaRogaSFX/dooropening.mp3
+Added  SFX/BabaRogaSFX/dooropening.mp3.import
+Added  SFX/BabaRogaSFX/universfield-eerie-sudden-shock-454675.mp3
+Added  SFX/BabaRogaSFX/universfield-eerie-sudden-shock-454675.mp3.import
+Modified  baba_roga.tscn
+Modified  character_body_3d.gd
+Modified  door.gd
+Modified  player.tscn
 Modified  project.godot</pre>
 </details>
 
