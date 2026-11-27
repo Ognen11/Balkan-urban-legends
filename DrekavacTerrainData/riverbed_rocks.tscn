@@ -1,0 +1,165 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://demo/assets/models/RockA.tscn" id="1_145bt"]
+
+[node name="RiverbedRocks" type="Node3D" unique_id=1900015231]
+
+[node name="RiverStone01" type="StaticBody3D" parent="." unique_id=927251469 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.018342229, 0, 0.2406747, 0, 0.18585694, 0, -0.2406747, 0, 0.018342229, 71.3248, 13.334923, -1070.7737)
+collision_mask = 3
+
+[node name="RiverStone02" type="StaticBody3D" parent="." unique_id=826854498 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.0726174, 0, -0.18227243, 0, 0.15107809, 0, 0.18227243, 0, 0.0726174, 98.827515, 12.859609, -1004.99036)
+collision_mask = 3
+
+[node name="RiverStone03" type="StaticBody3D" parent="." unique_id=76495243 instance=ExtResource("1_145bt")]
+transform = Transform3D(-0.06293657, 0, -0.26573855, 0, 0.21027908, 0, 0.26573855, 0, -0.06293657, 108.11408, 11.035711, -976.2731)
+collision_mask = 3
+
+[node name="RiverStone04" type="StaticBody3D" parent="." unique_id=1198655174 instance=ExtResource("1_145bt")]
+transform = Transform3D(-0.10361729, 0, 0.2435243, 0, 0.20378196, 0, -0.2435243, 0, -0.10361729, 111.13572, 11.352416, -872.6179)
+collision_mask = 3
+
+[node name="RiverStone05" type="StaticBody3D" parent="." unique_id=809641636 instance=ExtResource("1_145bt")]
+transform = Transform3D(-0.09829157, 0, -0.19990179, 0, 0.1715251, 0, 0.19990179, 0, -0.09829157, 106.186195, 10.989523, -817.7341)
+collision_mask = 3
+
+[node name="RiverStone06" type="StaticBody3D" parent="." unique_id=674089906 instance=ExtResource("1_145bt")]
+transform = Transform3D(-0.24350476, 0, 0.11407487, 0, 0.20705363, 0, -0.11407487, 0, -0.24350476, 120.98506, 10.116287, -817.7341)
+collision_mask = 3
+
+[node name="RiverStone07" type="StaticBody3D" parent="." unique_id=1558053512 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.07375336, 0, -0.2927788, 0, 0.2324826, 0, 0.2927788, 0, 0.07375336, 97.054306, 8.999761, -743.52203)
+collision_mask = 3
+
+[node name="RiverStone08" type="StaticBody3D" parent="." unique_id=1541778703 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.14998724, 0, -0.16782619, 0, 0.17331296, 0, 0.16782619, 0, 0.14998724, 89.17613, 9.2254305, -686.12146)
+collision_mask = 3
+
+[node name="RiverStone09" type="StaticBody3D" parent="." unique_id=378770246 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.04553266, 0, 0.2547298, 0, 0.19925079, 0, -0.2547298, 0, 0.04553266, 96.24103, 5.5959945, -647.5568)
+collision_mask = 3
+
+[node name="RiverStone10" type="StaticBody3D" parent="." unique_id=1073003098 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.12341625, 0, 0.23162256, 0, 0.20208736, 0, -0.23162256, 0, 0.12341625, 85.375755, 7.931379, -627.453)
+collision_mask = 3
+
+[node name="RiverStone11" type="StaticBody3D" parent="." unique_id=1506947211 instance=ExtResource("1_145bt")]
+transform = Transform3D(-0.1586636, 0, -0.05660265, 0, 0.12971243, 0, 0.05660265, 0, -0.1586636, 83.81505, 7.3986654, -591.204)
+collision_mask = 3
+
+[node name="RiverStone12" type="StaticBody3D" parent="." unique_id=613278486 instance=ExtResource("1_145bt")]
+transform = Transform3D(-0.22954287, 0, 0.1662027, 0, 0.21821488, 0, -0.1662027, 0, -0.22954287, 66.16864, 4.4830594, -428.14413)
+collision_mask = 3
+
+[node name="RiverStone13" type="StaticBody3D" parent="." unique_id=792455223 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.23598598, 0, 0.060646854, 0, 0.18761382, 0, -0.060646854, 0, 0.23598598, 55.581284, 4.596363, -388.40375)
+collision_mask = 3
+
+[node name="RiverStone14" type="StaticBody3D" parent="." unique_id=1276275 instance=ExtResource("1_145bt")]
+transform = Transform3D(-0.073485136, 0, -0.26112896, 0, 0.2088793, 0, 0.26112896, 0, -0.073485136, 69.465294, 2.97057, -388.40375)
+collision_mask = 3
+
+[node name="RiverStone15" type="StaticBody3D" parent="." unique_id=1798304271 instance=ExtResource("1_145bt")]
+transform = Transform3D(-0.18099251, 0, -0.25638962, 0, 0.2416548, 0, 0.25638962, 0, -0.18099251, 41.82859, 3.0561807, -339.63266)
+collision_mask = 3
+
+[node name="RiverStone16" type="StaticBody3D" parent="." unique_id=1229443004 instance=ExtResource("1_145bt")]
+transform = Transform3D(-0.08806986, 0, -0.18070148, 0, 0.15478595, 0, 0.18070148, 0, -0.08806986, 44.492268, 2.7125509, -302.59637)
+collision_mask = 3
+
+[node name="RiverStone17" type="StaticBody3D" parent="." unique_id=1914660814 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.17643914, 0, 0.11499573, 0, 0.16216645, 0, -0.11499573, 0, 0.17643914, 23.124655, 3.0306053, -272.85077)
+collision_mask = 3
+
+[node name="RiverStone18" type="StaticBody3D" parent="." unique_id=173370731 instance=ExtResource("1_145bt")]
+transform = Transform3D(-0.24221888, 0, -0.103520505, 0, 0.20282811, 0, 0.103520505, 0, -0.24221888, 36.954838, 2.333856, -272.85077)
+collision_mask = 3
+
+[node name="RiverStone19" type="StaticBody3D" parent="." unique_id=356155329 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.23781525, 0, 0.05063298, 0, 0.18722212, 0, -0.05063298, 0, 0.23781525, 20.292515, 1.7964225, -241.14407)
+collision_mask = 3
+
+[node name="RiverStone20" type="StaticBody3D" parent="." unique_id=1672508528 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.22140445, 0, 0.21238755, 0, 0.23623872, 0, -0.21238755, 0, 0.22140445, 30.487194, 0.21823294, -241.14407)
+collision_mask = 3
+
+[node name="RiverStone21" type="StaticBody3D" parent="." unique_id=1807913415 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.29050735, 0, 0.06115006, 0, 0.22859256, 0, -0.06115006, 0, 0.29050735, 18.104391, 1.2470582, -202.0041)
+collision_mask = 3
+
+[node name="RiverStone22" type="StaticBody3D" parent="." unique_id=350182907 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.093019105, 0, -0.17814153, 0, 0.1547431, 0, 0.17814153, 0, 0.093019105, 20.2697, 1.4619999, -169.78128)
+collision_mask = 3
+
+[node name="RiverStone23" type="StaticBody3D" parent="." unique_id=1629775327 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.0048854044, 0, -0.31748542, 0, 0.24449271, 0, 0.31748542, 0, 0.0048854044, 31.21909, 0.07168043, -169.78128)
+collision_mask = 3
+
+[node name="RiverStone24" type="StaticBody3D" parent="." unique_id=2087290867 instance=ExtResource("1_145bt")]
+transform = Transform3D(-0.011781179, 0, 0.16896062, 0, 0.13041556, 0, -0.16896062, 0, -0.011781179, 28.37916, 0.5702459, -132.7902)
+collision_mask = 3
+
+[node name="RiverStone25" type="StaticBody3D" parent="." unique_id=1153289760 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.14500509, 0, 0.102500364, 0, 0.13673258, 0, -0.102500364, 0, 0.14500509, 47.554237, -1.6473182, -104.795105)
+collision_mask = 3
+
+[node name="RiverStone26" type="StaticBody3D" parent="." unique_id=1068103536 instance=ExtResource("1_145bt")]
+transform = Transform3D(-0.10430247, 0, 0.17178985, 0, 0.15475038, 0, -0.17178985, 0, -0.10430247, 51.122272, 0.43973958, -67.02284)
+collision_mask = 3
+
+[node name="RiverStone27" type="StaticBody3D" parent="." unique_id=434995647 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.14193988, 0, 0.15073444, 0, 0.15942496, 0, -0.15073444, 0, 0.14193988, 59.38062, -0.7982608, -50.520805)
+collision_mask = 3
+
+[node name="RiverStone28" type="StaticBody3D" parent="." unique_id=1058227101 instance=ExtResource("1_145bt")]
+transform = Transform3D(-0.042759314, 0, -0.23734337, 0, 0.18569653, 0, 0.23734337, 0, -0.042759314, 70.91131, -0.43449235, -50.520805)
+collision_mask = 3
+
+[node name="RiverStone29" type="StaticBody3D" parent="." unique_id=2119317957 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.02231096, 0, 0.20045038, 0, 0.15529992, 0, -0.20045038, 0, 0.02231096, 83.81632, 0.014328432, 14.411022)
+collision_mask = 3
+
+[node name="RiverStone30" type="StaticBody3D" parent="." unique_id=1279449044 instance=ExtResource("1_145bt")]
+transform = Transform3D(-0.12752056, 0, 0.09873833, 0, 0.12418444, 0, -0.09873833, 0, -0.12752056, 95.36705, -0.28128412, 47.76411)
+collision_mask = 3
+
+[node name="RiverStone31" type="StaticBody3D" parent="." unique_id=887553947 instance=ExtResource("1_145bt")]
+transform = Transform3D(-0.16211663, 0, 0.21378885, 0, 0.20659472, 0, -0.21378885, 0, -0.16211663, 109.74647, -1.4563797, 47.76411)
+collision_mask = 3
+
+[node name="RiverStone32" type="StaticBody3D" parent="." unique_id=809881365 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.11523317, 0, -0.16440149, 0, 0.15458895, 0, 0.16440149, 0, 0.11523317, 107.86906, 0.41398865, 114.4791)
+collision_mask = 3
+
+[node name="RiverStone33" type="StaticBody3D" parent="." unique_id=894053273 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.03408709, 0, 0.19306886, 0, 0.15096225, 0, -0.19306886, 0, 0.03408709, 111.58527, -1.0557705, 148.08514)
+collision_mask = 3
+
+[node name="RiverStone34" type="StaticBody3D" parent="." unique_id=632760811 instance=ExtResource("1_145bt")]
+transform = Transform3D(-0.17482054, 0, 0.0058354987, 0, 0.13468678, 0, -0.0058354987, 0, -0.17482054, 109.331345, 0.3265581, 175.13033)
+collision_mask = 3
+
+[node name="RiverStone35" type="StaticBody3D" parent="." unique_id=688040234 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.2494702, 0, 0.1255052, 0, 0.21503128, 0, -0.1255052, 0, 0.2494702, 108.11537, -0.39075884, 207.98865)
+collision_mask = 3
+
+[node name="RiverStone36" type="StaticBody3D" parent="." unique_id=1693580871 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.16532634, 0, 0.016182773, 0, 0.12790968, 0, -0.016182773, 0, 0.16532634, 119.074974, -1.0725198, 207.98865)
+collision_mask = 3
+
+[node name="RiverStone37" type="StaticBody3D" parent="." unique_id=1204590596 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.04260699, 0, -0.28253832, 0, 0.22001429, 0, 0.28253832, 0, 0.04260699, 101.37907, -0.22401702, 249.36812)
+collision_mask = 3
+
+[node name="RiverStone38" type="StaticBody3D" parent="." unique_id=264419578 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.18637753, 0, 0.25887862, 0, 0.24562243, 0, -0.25887862, 0, 0.18637753, 113.41122, -0.3560591, 249.36812)
+collision_mask = 3
+
+[node name="RiverStone39" type="StaticBody3D" parent="." unique_id=1813646996 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.15040706, 0, -0.1958164, 0, 0.1901235, 0, 0.1958164, 0, 0.15040706, 108.08086, -1.9258994, 276.80798)
+collision_mask = 3
+
+[node name="RiverStone40" type="StaticBody3D" parent="." unique_id=1649250800 instance=ExtResource("1_145bt")]
+transform = Transform3D(0.025949074, 0, -0.27619773, 0, 0.2136088, 0, 0.27619773, 0, 0.025949074, 92.56822, -0.47361693, 314.51828)
+collision_mask = 3
