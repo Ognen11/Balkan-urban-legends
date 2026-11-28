@@ -3,6 +3,10 @@ extends CharacterBody3D
 signal health_changed(current_health: int)
 
 const MAX_HEALTH := 100
+const GRIP_TIGHTEN_TIME := 8.0
+const STRUGGLE_DRAIN_DELAY := 0.32
+const STRUGGLE_GAIN := Vector2(0.16, 0.08)
+const STRUGGLE_DRAIN := Vector2(0.09, 0.15)
 var health := MAX_HEALTH
 var mental_health := 50.0
 var inventory: Array[StringName] = []
@@ -11,10 +15,17 @@ var inventory_sources: Array[WeakRef] = []
 var inventory_names: Array[String] = []
 var aimed_door: Node3D
 var aimed_pickup: Area3D
+var captor: Node3D
+var struggle_progress := 0.0
+var struggle_time := 0.0
+var struggle_drain_delay := 0.0
+var last_struggle_direction := 0
 const PICKUP_DISTANCE := 2.5
 
 @onready var flashlight: SpotLight3D = $Caretaker/RightShoulder/Elbow/Flashlight/Beam
+@onready var caretaker: Node3D = $Caretaker
 @onready var camera: Camera3D = $Head/Camera3D
+@onready var capture_light: OmniLight3D = $Head/Camera3D/CaptureLight
 @onready var mental_health_bar: ProgressBar = $HealthHUD/MentalHealthBar
 @onready var mental_health_label: Label = $HealthHUD/MentalHealthBar/MentalHealthLabel
 @onready var pickup_prompt: Label = $HealthHUD/PickupPrompt
@@ -23,6 +34,10 @@ const PICKUP_DISTANCE := 2.5
 @onready var health_bar: ProgressBar = $HealthHUD/HealthBar
 @onready var health_label: Label = $HealthHUD/HealthBar/HealthLabel
 @onready var death_screen: Control = $HealthHUD/DeathScreen
+@onready var struggle_hud: VBoxContainer = $HealthHUD/Struggle
+@onready var struggle_prompt: Label = $HealthHUD/Struggle/Prompt
+@onready var struggle_meter: ProgressBar = $HealthHUD/Struggle/Meter
+@onready var death_subtitle: Label = $HealthHUD/DeathScreen/Content/Message/Subtitle
 @onready var retry_button: Button = $HealthHUD/DeathScreen/Content/Message/Retry
 
 @export var walk_speed: float = 4.0
@@ -35,6 +50,7 @@ const PICKUP_DISTANCE := 2.5
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 const STEP_HEIGHT := 0.3
 @onready var head: Node3D = $Head
+@onready var standing_head_height := head.position.y
 
 
 func _ready() -> void:
@@ -105,6 +121,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if is_instance_valid(captor):
+		return
+	if capture_light.visible:
+		end_capture()
+	head.position.y = move_toward(head.position.y, standing_head_height, 4.0 * delta)
 	_update_pickup_target()
 	if _is_looking_at_baba_roga():
 		change_mental_health(-2.0 * delta)
@@ -134,6 +155,86 @@ func _physics_process(delta: float) -> void:
 	try_step_up(horizontal_motion)
 
 	move_and_slide()
+
+
+func begin_capture(by: Node3D) -> bool:
+	if health == 0 or is_instance_valid(captor):
+		return false
+	captor = by
+	velocity = Vector3.ZERO
+	aimed_door = null
+	aimed_pickup = null
+	pickup_prompt.hide()
+	caretaker.hide()
+	capture_light.show()
+	struggle_progress = 0.0
+	struggle_time = 0.0
+	struggle_drain_delay = 0.0
+	last_struggle_direction = 0
+	struggle_prompt.text = "Alternate A / D or ← / →"
+	struggle_meter.value = 0.0
+	struggle_hud.show()
+	return true
+
+
+func update_struggle(delta: float) -> bool:
+	if struggle_progress >= 1.0:
+		return true
+	struggle_time += delta
+	struggle_drain_delay -= delta
+	if struggle_drain_delay <= 0.0:
+		var drain := lerpf(STRUGGLE_DRAIN.x, STRUGGLE_DRAIN.y, _grip_strength())
+		struggle_progress = move_toward(struggle_progress, 0.0, drain * delta)
+		struggle_meter.value = struggle_progress
+	return false
+
+
+func _grip_strength() -> float:
+	return clampf(struggle_time / GRIP_TIGHTEN_TIME, 0.0, 1.0)
+
+
+func _handle_struggle(event: InputEvent) -> void:
+	if event.is_echo() or struggle_progress >= 1.0:
+		return
+	var arrow := KEY_NONE
+	if event is InputEventKey and event.pressed:
+		arrow = event.physical_keycode
+	var direction := 0
+	if event.is_action_pressed(&"move_left") or arrow == KEY_LEFT:
+		direction = -1
+	elif event.is_action_pressed(&"move_right") or arrow == KEY_RIGHT:
+		direction = 1
+	if direction == 0 or direction == last_struggle_direction:
+		return
+	last_struggle_direction = direction
+	struggle_drain_delay = STRUGGLE_DRAIN_DELAY
+	var gain := lerpf(STRUGGLE_GAIN.x, STRUGGLE_GAIN.y, _grip_strength())
+	struggle_progress = minf(struggle_progress + gain, 1.0)
+	struggle_meter.value = struggle_progress
+	struggle_prompt.text = "Tap D or →" if direction < 0 else "Tap A or ←"
+
+
+func follow_capture(feet: Vector3, focus: Vector3, delta: float) -> void:
+	global_position = feet + Vector3.UP
+	head.position.y = move_toward(head.position.y, -0.28, 3.0 * delta)
+	var direction := camera.global_position.direction_to(focus)
+	if not direction.is_zero_approx():
+		var blend := 1.0 - exp(-9.0 * delta)
+		rotation.y = lerp_angle(rotation.y, atan2(-direction.x, -direction.z), blend)
+		head.rotation.x = lerp_angle(head.rotation.x, asin(clampf(direction.y, -1.0, 1.0)), blend)
+
+
+func end_capture() -> void:
+	captor = null
+	caretaker.show()
+	capture_light.hide()
+	struggle_hud.hide()
+
+
+func finish_capture() -> void:
+	struggle_hud.hide()
+	death_subtitle.text = "Baba Roga ate you."
+	take_damage(health)
 
 
 func try_step_up(horizontal_motion: Vector3) -> void:
@@ -241,6 +342,10 @@ func _update_pickup_target() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if is_instance_valid(captor):
+		_handle_struggle(event)
+		get_viewport().set_input_as_handled()
+		return
 	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode >= KEY_1 and event.physical_keycode <= KEY_5:
 		var slot: int = event.physical_keycode - KEY_1
 		if slot < inventory.size() and inventory[slot] != &"cigarette_box":
