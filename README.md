@@ -50,6 +50,18 @@ Validation included Godot scene imports, inventory pickups and consumption, flas
 
 <!-- game-changes -->
 
+<details><summary>Add Baba Roga basement capture and struggle mechanic</summary>
+
+[View commit](https://github.com/Ognen11/Balkan-urban-legends/commit/86feab8b524d71ef1e1abb43f1ecb7f2ef37122a)
+
+<pre>Modified  Models/BabaRoga/baba_roga.gd
+Modified  Models/BabaRoga/house_navigation.tres
+Modified  TerrainData/terrain3d-01-01.res
+Modified  baba_roga.tscn
+Modified  character_body_3d.gd
+Modified  player.tscn</pre>
+</details>
+
 <details><summary>Merge remote-tracking branch 'origin/main'</summary>
 
 [View commit](https://github.com/Ognen11/Balkan-urban-legends/commit/cc86a106d62b9f671afc69f848d47ac44bac7e26)
